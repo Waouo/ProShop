@@ -1,0 +1,4 @@
+export default USER_LOGIN_REQUEST = 'USER_LOGIN_REQUEST'
+export default USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
+export default USER_LOGIN_FAIL = 'USER_LOGIN_FAIL'
+export default USER_LOGOUT = 'USER_LOGOUT'
