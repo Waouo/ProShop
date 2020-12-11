@@ -1,15 +1,21 @@
 import express from 'express'
-import { getProducts, getProductById } from '../controllers/productController.js'
-const router = express.Router()
+import {
+  getProducts,
+  getProductById,
+  deleteProductById,
+  updateProduct,
+  createProduct,
+} from '../controllers/productController.js'
+import { protect, admin } from '../middleware/authMiddleware.js'
 
-// @desc     Fetch products data
-// @route    Get /api/products
-// @access   Public
-router.route('/').get(getProducts)
+const router = express.Router() 
 
-// @desc     Fetch single product data
-// @route    Get /api/products/:id
-// @access   Public
-router.route('/:id').get(getProductById)
+router.route('/').get(getProducts).post(protect, admin, createProduct)
+
+router
+  .route('/:id')
+  .get(getProductById)
+  .delete(protect, admin, deleteProductById)
+  .put(protect, admin, updateProduct)
 
 export default router

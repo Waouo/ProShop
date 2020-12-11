@@ -21,7 +21,7 @@ const importData = async () => {
 
     const adminUser = await createdUsers[0]._id
 
-    const sampleProducts = products.map(product => {
+    const sampleProducts = products.map((product) => {
       return { ...product, user: adminUser }
     })
 
