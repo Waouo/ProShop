@@ -1,9 +1,11 @@
 import asyncHandler from 'express-async-handler'
 import Order from '../models/orderModel.js'
 
-// @desc    Create new order
-// @route   Post /api/orders
-// @access  Private
+/**
+ * @desc    Create new order
+ * @route   Post /api/orders
+ * @access  Private
+ */
 const addOrderItems = asyncHandler(async (req, res) => {
   const {
     orderItems,
@@ -35,10 +37,12 @@ const addOrderItems = asyncHandler(async (req, res) => {
     res.status(201).json(createOrder)
   }
 })
-//
-// @desc    Create order by ID
-// @route   Post /api/orders/:id
-// @access  Private
+
+/**
+ * @desc    Create order by ID
+ * @route   Post /api/orders/:id
+ * @access  Private
+ */
 const getOrderByID = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id).populate(
     'user',
@@ -53,9 +57,11 @@ const getOrderByID = asyncHandler(async (req, res) => {
   }
 })
 
-// @desc    Update order to pay
-// @route   Put /api/orders/:id/pay
-// @access  Private
+/**
+ * @desc   Update order to pay
+ * @route   Put /api/orders/:id/pay
+ * @access  Private
+ */
 const updateOrderToPaid = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id)
 
@@ -78,9 +84,11 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
   }
 })
 
-// @desc    Get logged in user order
-// @route   GET /api/orders/myorders
-// @access  Private
+/**
+ * @desc    Get logged in user order
+ * @route   GET /api/orders/myorders
+ * @access  Private
+ */
 const getMyOrders = asyncHandler(async (req, res) => {
   const orders = await Order.find({ user: req.user._id })
   res.json(orders)
@@ -94,9 +102,11 @@ const getOrders = asyncHandler(async (req, res) => {
   res.json(orders)
 })
 
-// @desc    Update order to deliver
-// @route   Put /api/orders/:id/deliver
-// @access  Private/Admin
+/**
+ * @desc    Update order to deliver
+ * @route   Put /api/orders/:id/deliver
+ * @access  Private/Admin
+ */
 const updateOrderToDelivered = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id)
 
