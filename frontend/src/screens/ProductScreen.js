@@ -22,6 +22,7 @@ import {
 } from '../actions/productActions'
 import {addToCart} from '../actions/cartActions'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
+import { PRODUCT_DETAILS_RESET } from '../constants/productConstants'
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1)
@@ -45,6 +46,8 @@ const ProductScreen = ({ history, match }) => {
   } = productReviewCreate
 
   useEffect(() => {
+    dispatch({ type: PRODUCT_DETAILS_RESET })
+
     if (successProductReview) {
       alert('Review Submitted!')
       setRating(0)
@@ -74,7 +77,7 @@ const ProductScreen = ({ history, match }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
-          <Meta title={product.name} />
+          <Meta title={product?.name} />
           <Row>
             <Col md={6}>
               <Image src={product.image} alt={product.name} fluid />
