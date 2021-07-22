@@ -26,6 +26,9 @@ const ProductEditScreen = ({ match, history }) => {
 
   const dispatch = useDispatch()
 
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
   const productDetails = useSelector((state) => state.productDetails)
   const { loading, error, product } = productDetails
 
@@ -37,6 +40,9 @@ const ProductEditScreen = ({ match, history }) => {
   } = productUpdate
 
   useEffect(() => {
+    if (!userInfo || !userInfo.isAdmin) {
+      history.push('/login')
+    }
     if (successUpdate) {
       dispatch({ type: PRODUCT_UPDATE_RESET })
       dispatch({ type: PRODUCT_DETAILS_RESET })
@@ -54,7 +60,7 @@ const ProductEditScreen = ({ match, history }) => {
         setDescription(product.description)
       }
     }
-  }, [dispatch, history, product, productId, successUpdate])
+  }, [dispatch, history, product, productId, successUpdate, userInfo])
 
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0]
@@ -64,7 +70,10 @@ const ProductEditScreen = ({ match, history }) => {
 
     try {
       const config = {
-        'Content-Type': 'multipart/form-data',
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`,
+          'Content-Type': 'multipart/form-data',
+        },
       }
 
       const { data } = await axios.post('/api/upload', formData, config)
@@ -142,6 +151,7 @@ const ProductEditScreen = ({ match, history }) => {
                 custom
                 onChange={uploadFileHandler}
               ></Form.File>
+              {uploading && <Loader />}
             </Form.Group>
 
             <Form.Group controlId="brand">
