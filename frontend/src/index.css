@@ -60,3 +60,18 @@ h2 {
     font-size: 2vw;
   }
 }
+
+/* animation */
+
+.dropdown .dropdown-menu {
+  transition: all 0.3s;
+  max-height: 0;
+  display: block;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.dropdown.show .dropdown-menu {
+  max-height: 300px;
+  opacity: 1;
+}
