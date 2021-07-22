@@ -31,7 +31,7 @@ const LoginScreen = ({ location, history }) => {
 
   return (
     <FormContainer>
-      <h1>Sing In</h1>
+      <h1>Login</h1>
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
@@ -53,15 +53,18 @@ const LoginScreen = ({ location, history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Button type="submit" variant="primary">
-          Sign In
+        <Button variant="primary" type="submit">
+          Login
         </Button>
       </Form>
 
       <Row className="py-3">
         <Col>
           New Customer? {/* Add a space */}
-          <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
+          <Link
+            to={redirect ? `/register?redirect=${redirect}` : '/register'}
+            className="text-info"
+          >
             Register
           </Link>
         </Col>
