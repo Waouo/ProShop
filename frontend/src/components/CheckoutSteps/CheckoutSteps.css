@@ -1,0 +1,24 @@
+.step-item-enabled, .step-item-disabled {
+  background: gray;
+  border-radius: 50%;
+  color: white;
+}
+
+.step-item-enabled {
+  background: black;
+}
+
+.step-item-enabled:hover {
+  background: gray;
+  color: white;
+}
+
+.step-item-disabled {
+  background: gray;
+}
+
+.step-item-disabled:hover {
+  background: gray;
+  color: white;
+  cursor: default;
+}
