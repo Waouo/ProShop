@@ -29,35 +29,35 @@ const Header = () => {
             <Nav className="ml-auto">
               <LinkContainer to="/cart">
                 <Nav.Link>
-                  <i className="fas fa-shopping-cart"></i> Cart
+                  <i className="fas fa-shopping-cart"></i> 購物車
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
                 <NavDropdown stopClick title={userInfo.name} id="username">
                   <LinkContainer to="/profile">
-                    <NavDropdown.Item>profile</NavDropdown.Item>
+                    <NavDropdown.Item>會員中心</NavDropdown.Item>
                   </LinkContainer>
                   <NavDropdown.Item onClick={logoutHandler}>
-                    Logout
+                    登出
                   </NavDropdown.Item>
                 </NavDropdown>
               ) : (
                 <LinkContainer to="/login">
                   <Nav.Link>
-                    <i className="fas fa-user"></i> Sign In
+                    <i className="fas fa-user"></i> 登入
                   </Nav.Link>
                 </LinkContainer>
               )}
               {userInfo && userInfo.isAdmin && (
-                <NavDropdown title="Admin" id="admin-menu">
+                <NavDropdown title="管理員" id="admin-menu">
                   <LinkContainer to="/admin/userlist">
-                    <NavDropdown.Item>Users</NavDropdown.Item>
+                    <NavDropdown.Item>會員</NavDropdown.Item>
                   </LinkContainer>
                   <LinkContainer to="/admin/productlist">
-                    <NavDropdown.Item>Products</NavDropdown.Item>
+                    <NavDropdown.Item>商品</NavDropdown.Item>
                   </LinkContainer>
                   <LinkContainer to="/admin/orderlist">
-                    <NavDropdown.Item>Orders</NavDropdown.Item>
+                    <NavDropdown.Item>訂單</NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>
               )}

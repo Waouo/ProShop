@@ -25,10 +25,10 @@ const ShippingScreen = ({ history }) => {
   return (
     <FormContainer>
       <CheckoutSteps step1 step2 />
-      <h1>Shipping</h1>
+      <h1>運輸</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="address">
-          <Form.Label>Address</Form.Label>
+          <Form.Label>地址</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter address"
@@ -39,7 +39,7 @@ const ShippingScreen = ({ history }) => {
         </Form.Group>
 
         <Form.Group controlId="city">
-          <Form.Label>City</Form.Label>
+          <Form.Label>城市</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter city"
@@ -49,7 +49,7 @@ const ShippingScreen = ({ history }) => {
           ></Form.Control>
 
           <Form.Group controlId="postalCode">
-            <Form.Label>Postal Code</Form.Label>
+            <Form.Label>郵遞區號</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter postalCode"
@@ -61,7 +61,7 @@ const ShippingScreen = ({ history }) => {
         </Form.Group>
 
         <Form.Group controlId="country">
-          <Form.Label>Country</Form.Label>
+          <Form.Label>國家</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter country"
@@ -72,7 +72,7 @@ const ShippingScreen = ({ history }) => {
         </Form.Group>
 
         <Button type="submit" variant="primary">
-          Continue
+          繼續
         </Button>
       </Form>
     </FormContainer>

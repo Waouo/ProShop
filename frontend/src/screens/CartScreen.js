@@ -33,10 +33,11 @@ const CartScreen = ({ match, location, history }) => {
   return (
     <Row>
       <Col md={8}>
-        <h1>Shopping Cart</h1>
+        <h1 className="pb-0 mb-0">購物車</h1>
+        <hr/>
         {cartItems.length === 0 ? (
           <Message>
-            Your cart is empty <Link to="/">Go Back</Link>
+            購物車內沒有任何商品 <Link to="/">返回首頁</Link>
           </Message>
         ) : (
           <ListGroup variant="flush">
@@ -87,8 +88,8 @@ const CartScreen = ({ match, location, history }) => {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h2>
-                Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
-                items
+                總計 ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
+                件商品
               </h2>
               $
               {cartItems
@@ -102,7 +103,7 @@ const CartScreen = ({ match, location, history }) => {
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}
               >
-                Proceed To Checkout
+                結帳
               </Button>
             </ListGroup.Item>
           </ListGroup>

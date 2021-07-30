@@ -20,7 +20,7 @@ import {
   listProductDetails,
   createProductReview,
 } from '../actions/productActions'
-import {addToCart} from '../actions/cartActions'
+import { addToCart } from '../actions/cartActions'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
 import { PRODUCT_DETAILS_RESET } from '../constants/productConstants'
 
@@ -40,10 +40,8 @@ const ProductScreen = ({ history, match }) => {
   const { loading, product, error } = productDetails
 
   const productReviewCreate = useSelector((state) => state.productReviewCreate)
-  const {
-    error: errorProductReview,
-    success: successProductReview,
-  } = productReviewCreate
+  const { error: errorProductReview, success: successProductReview } =
+    productReviewCreate
 
   useEffect(() => {
     dispatch({ type: PRODUCT_DETAILS_RESET })
@@ -68,9 +66,12 @@ const ProductScreen = ({ history, match }) => {
   }
   return (
     <>
-      <Link to="/" className="btn btn-light my-3">
-        Go Back
+      <Link to="/">
+        <Button Button variant="outline-dark">
+          返回
+        </Button>
       </Link>
+
       {loading ? (
         <Loader />
       ) : error ? (
@@ -90,12 +91,17 @@ const ProductScreen = ({ history, match }) => {
                 <ListGroupItem>
                   <Rating
                     value={Number(product.rating)}
-                    text={`${product.numReviews} reviews`}
+                    text={`${product.numReviews} 個評論`}
                   ></Rating>
                 </ListGroupItem>
-                <ListGroupItem>Price: ${product.price}</ListGroupItem>
                 <ListGroupItem>
-                  Description:
+                  價格:{' '}
+                  <span className="text-danger" style={{ fontSize: '1.5rem' }}>
+                    ${product.price}
+                  </span>
+                </ListGroupItem>
+                <ListGroupItem>
+                  商品敘述:
                   <br />
                   {product.description}
                 </ListGroupItem>
@@ -105,15 +111,15 @@ const ProductScreen = ({ history, match }) => {
               <Card>
                 <ListGroupItem>
                   <Row>
-                    <Col>Price</Col>
-                    <Col>${product.price}</Col>
+                    <Col>價格</Col>
+                    <Col className="text-danger">${product.price}</Col>
                   </Row>
                 </ListGroupItem>
                 <ListGroupItem>
                   <Row>
-                    <Col>status:</Col>
+                    <Col>庫存:</Col>
                     <Col>
-                      {product.countInStock > 0 ? 'In stock' : 'Out of stock'}
+                      {product.countInStock > 0 ? '尚有庫存' : '補貨中'}
                     </Col>
                   </Row>
                 </ListGroupItem>
@@ -144,7 +150,7 @@ const ProductScreen = ({ history, match }) => {
                     className="btn-block"
                     disabled={product.countInStock === 0}
                   >
-                    Add To Cart
+                    加入購物車
                   </Button>
                 </ListGroupItem>
               </Card>
@@ -152,8 +158,8 @@ const ProductScreen = ({ history, match }) => {
           </Row>
           <Row>
             <Col md={6}>
-              <h2>Reviews</h2>
-              {product.reviews.length === 0 && <Message>No Reviews</Message>}
+              <h2>評論</h2>
+              {product.reviews.length === 0 && <Message>沒有評論</Message>}
               <ListGroup variant="flush">
                 {product.reviews.map((review) => (
                   <ListGroup.Item key={review._id}>
@@ -164,29 +170,29 @@ const ProductScreen = ({ history, match }) => {
                   </ListGroup.Item>
                 ))}
                 <ListGroup.Item>
-                  <h2>Write a Customer Review</h2>
+                  <h2>寫下你的評論吧!</h2>
                   {errorProductReview && (
                     <Message variant="danger">{errorProductReview}</Message>
                   )}
                   {userInfo ? (
                     <Form onSubmit={submitHandler}>
                       <Form.Group controlId="ration">
-                        <Form.Label>Rating</Form.Label>
+                        <Form.Label>評價</Form.Label>
                         <Form.Control
                           as="select"
                           value={rating}
                           onChange={(e) => setRating(e.target.value)}
                         >
-                          <option value="">Select...</option>
-                          <option value="1">1 - Poor</option>
-                          <option value="2">2 - Fair</option>
-                          <option value="3">3 - Good</option>
-                          <option value="4">4 - Very Good</option>
-                          <option value="5">5 - Excellent</option>
+                          <option value="">選擇...</option>
+                          <option value="1">1 - 糟糕</option>
+                          <option value="2">2 - 有點糟</option>
+                          <option value="3">3 - 普通</option>
+                          <option value="4">4 - 不錯</option>
+                          <option value="5">5 - 很棒</option>
                         </Form.Control>
                       </Form.Group>
                       <Form.Group controlId="comment">
-                        <Form.Label>Comment</Form.Label>
+                        <Form.Label>評論</Form.Label>
                         <Form.Control
                           as="textarea"
                           row="3"

@@ -26,10 +26,10 @@ const PaymentScreen = ({ history }) => {
   return (
     <FormContainer>
       <CheckoutSteps step1 step2 step3 />
-      <h1>Shipping</h1>
+      <h1>付款方式</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group>
-          <Form.Label as="legend">Select Method</Form.Label>
+          <Form.Label as="legend">選擇付款方式</Form.Label>
           <Col>
             <Form.Check
               type="radio"
@@ -40,17 +40,8 @@ const PaymentScreen = ({ history }) => {
               checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
-            <Form.Check
-              type="radio"
-              label="Stripe"
-              id="Stripe"
-              name="paymentMethod"
-              value="Stripe"
-              onChange={(e) => setPaymentMethod(e.target.value)}
-            ></Form.Check>
           </Col>
         </Form.Group>
-
         <Button type="submit" variant="primary">
           Continue
         </Button>

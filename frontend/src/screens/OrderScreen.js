@@ -89,49 +89,47 @@ const OrderScreen = ({ match, history }) => {
     <Message variant="danger">{error}</Message>
   ) : (
     <>
-      <h1>Order {order._id}</h1>
+      <h1>訂單編號 {order._id}</h1>
       <Row>
         <Col md={8}>
           <ListGroup>
             <ListGroup.Item>
-              <h2>Shipping</h2>
+              <h2>聯絡方式</h2>
               <p>
-                <strong>Name:</strong>
+                <strong>名稱:</strong>
                 {order.user.name}
               </p>
               <p>
                 <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
               </p>
               <p>
-                <strong>Address:</strong>
+                <strong>地址:</strong>
                 {order.shippingAddress.address}, {order.shippingAddress.city}{' '}
                 {order.shippingAddress.postalCode},{' '}
                 {order.shippingAddress.country}
               </p>
             </ListGroup.Item>
             {order.isDelivered ? (
-              <Message variant="success">
-                Delivered on {order.deliveredAt}
-              </Message>
+              <Message variant="success">於 {order.deliveredAt} 送達</Message>
             ) : (
-              <Message variant="danger">Not Delivered</Message>
+              <Message variant="danger">未送達</Message>
             )}
             <ListGroup.Item>
-              <h2>Payment Method</h2>
+              <h2>付款方式</h2>
               <p>
-                <strong>Method:</strong>
+                <strong>方式:</strong>
                 {order.paymentMethod}
               </p>
             </ListGroup.Item>
             {order.isPaid ? (
-              <Message variant="success">Paid on {order.paidAt}</Message>
+              <Message variant="success">於 {order.paidAt}付款</Message>
             ) : (
-              <Message variant="danger">Not Paid</Message>
+              <Message variant="danger">未付款</Message>
             )}
             <ListGroup.Item>
-              <h2>Order Items</h2>
+              <h2>訂單商品</h2>
               {order.orderItems.length === 0 ? (
-                <Message>Your order is empty</Message>
+                <Message>你的商品是空的</Message>
               ) : (
                 <ListGroup variant="flush">
                   {order.orderItems.map((item, index) => (
@@ -165,29 +163,29 @@ const OrderScreen = ({ match, history }) => {
           <Card>
             <ListGroup variant="flush">
               <ListGroup.Item>
-                <h2>Order Summary</h2>
+                <h2>訂單摘要</h2>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Items</Col>
+                  <Col>商品</Col>
                   <Col>${order.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Shipping</Col>
+                  <Col>運費</Col>
                   <Col>${order.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Tax</Col>
+                  <Col>稅</Col>
                   <Col>${order.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Total</Col>
+                  <Col>總計</Col>
                   <Col>${order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
@@ -215,7 +213,7 @@ const OrderScreen = ({ match, history }) => {
                       className="btn btn-block"
                       onClick={deliverHandler}
                     >
-                      Mark As Delivered
+                      商品已運送
                     </Button>
                   </ListGroup.Item>
                 )}
