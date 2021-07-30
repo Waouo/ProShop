@@ -1,0 +1,13 @@
+.card-product {
+  transition: all .3s ease;
+}
+
+.card-product:hover {
+  text-decoration: none;
+  border: black 1px solid;
+  transform: translateY(-10px);
+}
+
+.card-product a:hover {
+  text-decoration: none;
+}
