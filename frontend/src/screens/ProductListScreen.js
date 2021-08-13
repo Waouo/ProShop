@@ -64,7 +64,7 @@ const ProductListScreen = ({ history, match }) => {
   }
 
   const deleteHandler = (id) => {
-    if (window.confirm('Are you sure you want to delete?')) {
+    if (window.confirm('確定要刪除嗎?')) {
       dispatch(deleteProduct(id))
     }
   }
@@ -73,11 +73,11 @@ const ProductListScreen = ({ history, match }) => {
     <>
       <Row className="align-items-center">
         <Col>
-          <h1>products</h1>
+          <h1>商品</h1>
         </Col>
         <Col className="text-right">
           <Button className="my-3" onClick={createProductHandler}>
-            <i className="fas fa-plus"></i> Create Product
+            <i className="fas fa-plus"></i> 新增商品
           </Button>
         </Col>
       </Row>
@@ -95,10 +95,10 @@ const ProductListScreen = ({ history, match }) => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>NAME</th>
-                <th>PRICE</th>
-                <th>CATEGORY</th>
-                <th>BRAND</th>
+                <th>名稱</th>
+                <th>價格</th>
+                <th>類別</th>
+                <th>品牌</th>
                 <th></th>
               </tr>
             </thead>

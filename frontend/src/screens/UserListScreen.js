@@ -27,14 +27,14 @@ const UserListScreen = ({ history }) => {
   }, [dispatch, history, userInfo, successDelete])
 
   const deleteHandler = (id) => {
-    if (window.confirm('Are you sure you want to delete?')) {
+    if (window.confirm('確定要刪除嗎??')) {
       dispatch(deleteUser(id))
     }
   }
 
   return (
     <>
-      <h1>Users</h1>
+      <h1>會員</h1>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -44,9 +44,9 @@ const UserListScreen = ({ history }) => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>NAME</th>
-              <th>EMAIL</th>
-              <th>ADMIN</th>
+              <th>名稱</th>
+              <th>電子郵件</th>
+              <th>管理員</th>
               <th></th>
             </tr>
           </thead>

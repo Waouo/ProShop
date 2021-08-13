@@ -33,7 +33,7 @@ const PaymentScreen = ({ history }) => {
           <Col>
             <Form.Check
               type="radio"
-              label="PayPal or Credit Card"
+              label="PayPal 或 信用卡"
               id="PayPal"
               name="paymentMethod"
               value={paymentMethod}
@@ -43,7 +43,7 @@ const PaymentScreen = ({ history }) => {
           </Col>
         </Form.Group>
         <Button type="submit" variant="primary">
-          Continue
+          繼續
         </Button>
       </Form>
     </FormContainer>

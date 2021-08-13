@@ -27,7 +27,7 @@ const OrderListScreen = ({ history, match }) => {
     <>
       <Row className="align-items-center">
         <Col>
-          <h1>orders</h1>
+          <h1>訂單</h1>
         </Col>
       </Row>
       {loading ? (
@@ -39,11 +39,11 @@ const OrderListScreen = ({ history, match }) => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>USER</th>
-              <th>DATE</th>
-              <th>TOTAL</th>
-              <th>PAID</th>
-              <th>DELIVERED</th>
+              <th>會員</th>
+              <th>日期</th>
+              <th>總計</th>
+              <th>付款</th>
+              <th>送達</th>
               <th></th>
             </tr>
           </thead>
@@ -71,7 +71,7 @@ const OrderListScreen = ({ history, match }) => {
                 <td>
                   <LinkContainer to={`/order/${order._id}`}>
                     <Button variant="light" className="btn-sm">
-                      Details
+                      詳細資料
                     </Button>
                   </LinkContainer>
                 </td>

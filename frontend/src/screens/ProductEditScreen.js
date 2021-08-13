@@ -105,10 +105,10 @@ const ProductEditScreen = ({ match, history }) => {
   return (
     <>
       <Link to="/admin/productlist" className="btn btn-light my-3">
-        Go Back
+        返回
       </Link>
       <FormContainer>
-        <h1>Edit Product</h1>
+        <h1>商品編輯</h1>
         {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
         {loading ? (
@@ -118,36 +118,36 @@ const ProductEditScreen = ({ match, history }) => {
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>名稱</Form.Label>
               <Form.Control
                 type="name"
-                placeholder="Enter Name"
+                placeholder="輸入名稱"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="price">
-              <Form.Label>Price</Form.Label>
+              <Form.Label>價格</Form.Label>
               <Form.Control
                 type="number"
-                placeholder="Enter price"
+                placeholder="輸入價格"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="image">
-              <Form.Label>Image</Form.Label>
+              <Form.Label>圖片</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter image url"
+                placeholder="輸入圖片url"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
               <Form.File
                 id="image-file"
-                label="Choose image"
+                label="選擇圖片"
                 custom
                 onChange={uploadFileHandler}
               ></Form.File>
@@ -155,47 +155,47 @@ const ProductEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Form.Group controlId="brand">
-              <Form.Label>Brand</Form.Label>
+              <Form.Label>品牌</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter brand"
+                placeholder="輸入品牌"
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="category">
-              <Form.Label>Category</Form.Label>
+              <Form.Label>類別</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter category"
+                placeholder="輸入類別"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="countInStock">
-              <Form.Label>CountInStock</Form.Label>
+              <Form.Label>庫存</Form.Label>
               <Form.Control
                 type="number"
-                placeholder="Enter countInStock"
+                placeholder="輸入庫存"
                 value={countInStock}
                 onChange={(e) => setCountInStock(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="description">
+            <Form.Group controlId="描述">
               <Form.Label>Description</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter description"
+                placeholder="輸入描述"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Button type="submit" variant="primary">
-              Update
+              更新
             </Button>
           </Form>
         )}

@@ -12,7 +12,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
               <Nav.Link className="step-item-enabled">登入</Nav.Link>
             </LinkContainer>
           ) : (
-            <Nav.Link className="step-item-disabled">Sign In</Nav.Link>
+            <Nav.Link className="step-item-disabled">登入</Nav.Link>
           )}
         </Nav.Item>
 

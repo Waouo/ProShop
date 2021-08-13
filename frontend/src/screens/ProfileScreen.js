@@ -33,15 +33,11 @@ const ProfileScreen = ({ location, history }) => {
     if (!userInfo) {
       history.push('/login')
     } else {
-      if (!user || !user.name) {
+      if (!user || !user.name || success) {
         dispatch({ type: USER_UPDATE_PROFILE_RESET })
         dispatch(getUserDetails('profile'))
         dispatch(listMyOrders())
-      } else if (success) {
-        dispatch({ type: USER_UPDATE_PROFILE_RESET })
-        dispatch(getUserDetails('profile'))
-      }
-      else {
+      } else {
         setName(user.name)
         setEmail(user.email)
       }
@@ -51,7 +47,7 @@ const ProfileScreen = ({ location, history }) => {
   const submitHandler = (e) => {
     e.preventDefault()
     if (password !== confirmPassword) {
-      setMessage('Passwords do not match')
+      setMessage('密碼不符')
     } else {
       dispatch(updateUserProfile({ id: user._id, name, email, password }))
     }
@@ -157,7 +153,7 @@ const ProfileScreen = ({ location, history }) => {
                   <td>
                     <LinkContainer to={`/order/${order._id}`}>
                       <Button className="btn-sm" variant="light">
-                        Details
+                        詳細資料
                       </Button>
                     </LinkContainer>
                   </td>

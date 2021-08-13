@@ -47,7 +47,7 @@ const ProductScreen = ({ history, match }) => {
     dispatch({ type: PRODUCT_DETAILS_RESET })
 
     if (successProductReview) {
-      alert('Review Submitted!')
+      alert('評論已送出!')
       setRating(0)
       setComment('')
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
@@ -91,7 +91,7 @@ const ProductScreen = ({ history, match }) => {
                 <ListGroupItem>
                   <Rating
                     value={Number(product.rating)}
-                    text={`${product.numReviews} 個評論`}
+                    text={`${product.numReviews} 個評價`}
                   ></Rating>
                 </ListGroupItem>
                 <ListGroupItem>
@@ -126,7 +126,7 @@ const ProductScreen = ({ history, match }) => {
                 {product.countInStock > 0 && (
                   <ListGroupItem>
                     <Row>
-                      <Col>Qty</Col>
+                      <Col>數量</Col>
                       <Col>
                         <Form.Control
                           as="select"
@@ -201,13 +201,13 @@ const ProductScreen = ({ history, match }) => {
                         ></Form.Control>
                       </Form.Group>
                       <Button type="submit" variant="primary">
-                        Submit
+                        確認
                       </Button>
                     </Form>
                   ) : (
                     <Message>
-                      Please <Link to={'/login'}>sign in</Link> to write a
-                      review{' '}
+                      請<Link to={'/login'}>登入</Link>
+                      並寫下你的評論{' '}
                     </Message>
                   )}
                 </ListGroup.Item>

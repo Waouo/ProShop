@@ -30,7 +30,7 @@ const RegisterScreen = ({ location, history }) => {
   const submitHandler = (e) => {
     e.preventDefault()
     if (password !== confirmPassword) {
-      setMessage('Password do not match')
+      setMessage('密碼不符')
     } else {
       dispatch(register(name, email, password))
     }
@@ -87,7 +87,10 @@ const RegisterScreen = ({ location, history }) => {
       <Row className="py-3">
         <Col>
           已有帳戶? {/* Add a space */}
-          <Link to={redirect ? `/login?redirect=${redirect}` : '/login'} className="text-info">
+          <Link
+            to={redirect ? `/login?redirect=${redirect}` : '/login'}
+            className="text-info"
+          >
             登入
           </Link>
         </Col>

@@ -50,10 +50,10 @@ const UserEditScreen = ({ match, history }) => {
   return (
     <>
       <Link to="/admin/userlist" className="btn btn-light my-3">
-        Go Back
+        返回
       </Link>
       <FormContainer>
-        <h1>Edit User</h1>
+        <h1>會員資料編輯</h1>
         {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
         {loading ? (
@@ -63,20 +63,20 @@ const UserEditScreen = ({ match, history }) => {
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name">
-              <Form.Label>name Address</Form.Label>
+              <Form.Label>會員名稱</Form.Label>
               <Form.Control
                 type="name"
-                placeholder="Enter name"
+                placeholder="輸入名稱"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="email">
-              <Form.Label>Email Address</Form.Label>
+              <Form.Label>電子郵件</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Enter email"
+                placeholder="輸入電子郵件"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               ></Form.Control>
@@ -92,7 +92,7 @@ const UserEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Button type="submit" variant="primary">
-              Update
+              更新
             </Button>
           </Form>
         )}
