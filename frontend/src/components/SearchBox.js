@@ -26,7 +26,7 @@ const SearchBox = ({ history }) => {
       <Button
         type="submit"
         variant="outline-success"
-        className="py-2 p-x4"
+        className="pt-2 pb-1 p-x4"
       >
         <i className="fas fa-search" style={{ fontSize: '18px' }}></i>
       </Button>
